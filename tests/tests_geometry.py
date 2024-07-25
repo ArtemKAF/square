@@ -10,7 +10,7 @@ class TestGeometry(unittest.TestCase):
     """Tests for geometry.py."""
 
     @parameterized.expand(fixtures.CORRECT_CIRCLE)
-    def test_correct_circle_area(self, radius, result):
+    def test_correct_circle_area(self, radius: int | float, result: float):
         """
         Test that the area of a circle is correct.
 
@@ -32,7 +32,7 @@ class TestGeometry(unittest.TestCase):
         self.assertAlmostEqual(circle.calculate_area(), result)
 
     @parameterized.expand(fixtures.NOT_CORRECT_CIRCLE)
-    def test_circle_negative_radius(self, radius):
+    def test_circle_negative_radius(self, radius: int | float):
         """
         Test that a ValueError is raised when a negative radius is provided to
         the Circle constructor.
@@ -53,7 +53,13 @@ class TestGeometry(unittest.TestCase):
             Circle(radius)
 
     @parameterized.expand(fixtures.CORRECT_TRIANGLE_AREA)
-    def test_correct_triangle_area(self, a, b, c, result):
+    def test_correct_triangle_area(
+        self,
+        a: int | float,
+        b: int | float,
+        c: int | float,
+        result: float,
+    ):
         """
         Test that the area of a triangle is correct.
 
@@ -77,7 +83,12 @@ class TestGeometry(unittest.TestCase):
         self.assertAlmostEqual(triangle.calculate_area(), result)
 
     @parameterized.expand(fixtures.NOT_CORRECT_TRIANGLE)
-    def test_triangle_is_not_triangle(self, a, b, c):
+    def test_triangle_is_not_triangle(
+        self,
+        a: int | float,
+        b: int | float,
+        c: int | float,
+    ):
         """
         Test that a ValueError is raised when creating a Triangle object with
         incorrect side lengths.
@@ -100,7 +111,12 @@ class TestGeometry(unittest.TestCase):
             Triangle(a, b, c)
 
     @parameterized.expand(fixtures.CORRECT_RIGHT_TRIANGLE_AREA)
-    def test_correct_right_triangle_area(self, width, height, result):
+    def test_correct_right_triangle_area(
+        self,
+        width: int | float,
+        height: int | float,
+        result: float,
+    ):
         """
         Test that the area of a right triangle is correct.
 
@@ -124,7 +140,11 @@ class TestGeometry(unittest.TestCase):
         self.assertAlmostEqual(right_triangle.calculate_area(), result)
 
     @parameterized.expand(fixtures.NOT_CORRECT_RIGHT_TRIANGLE)
-    def test_right_triangle_is_not_right_triangle(self, width, height):
+    def test_right_triangle_is_not_right_triangle(
+        self,
+        width: int | float,
+        height: int | float,
+    ):
         """
         Test that a ValueError is raised when creating a RightTriangle object
         with incorrect width and height values.
@@ -146,7 +166,12 @@ class TestGeometry(unittest.TestCase):
             RightTriangle(width, height)
 
     @parameterized.expand(fixtures.CORRECT_RECTANGLE_AREA)
-    def test_rectangle_area(self, width, height, result):
+    def test_rectangle_area(
+        self,
+        width: int | float,
+        height: int | float,
+        result: float,
+    ):
         """
         Test the area calculation of a rectangle.
 
@@ -167,7 +192,11 @@ class TestGeometry(unittest.TestCase):
         self.assertAlmostEqual(rectangle.calculate_area(), result)
 
     @parameterized.expand(fixtures.NOT_CORRECT_RECTANGLE)
-    def test_triangle_is_right_triangle(self, width, height):
+    def test_triangle_is_right_triangle(
+        self,
+        width: int | float,
+        height: int | float,
+    ):
         """
         Test that a ValueError is raised when creating a Rectangle object
         with incorrect width and height values.
